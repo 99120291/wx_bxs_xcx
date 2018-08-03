@@ -1,0 +1,110 @@
+<style lang="less">
+page {
+  background-color: #efeff4;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: 'iconfont';  /* project id 669488 */
+  src: url('//at.alicdn.com/t/font_669488_iem5kx79gh.eot');
+  src: url('//at.alicdn.com/t/font_669488_iem5kx79gh.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_669488_iem5kx79gh.woff') format('woff'),
+  url('//at.alicdn.com/t/font_669488_iem5kx79gh.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_669488_iem5kx79gh.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: 'iconfont' !important;
+  font-size: 46rpx;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-briefcase:before { content: "\e60e"; }
+
+.icon-xingzhuang60kaobei2:before { content: "\e603"; }
+
+.icon-gengduo:before { content: "\e672"; }
+
+.icon-gengduo1:before { content: "\e691"; }
+
+.icon-dingweiweizhi:before { content: "\e60c"; }
+</style>
+<script>
+import wepy from 'wepy';
+import 'wepy-async-function';
+
+export default class extends wepy.app {
+  // 配置信息
+  config = {
+    // 页面列表
+    pages: [
+      'pages/info',
+      'pages/activity',
+      'pages/teacher',
+      'pages/detail',
+      'pages/apply',
+      'pages/question',
+    ],
+    // window 参数设置
+    window: {
+      backgroundTextStyle: 'light', // 下拉背景字体、loading 图的样式，仅支持 dark/light
+      backgroundColor: '#979797', // 窗口的背景颜色
+      navigationBarBackgroundColor: '#3A76E5', // 导航栏背景颜色
+      navigationBarTitleText: '敢问', // 导航栏标题文字内容
+      navigationBarTextStyle: '#fff', // 导航栏标题颜色
+      enablePullDownRefresh: true, // 是否开启下拉刷新
+      onReachBottomDistance: 50 // 页面上拉触底事件触发时距页面底部距离，单位为px
+    },
+    // 网络超时时间
+    networkTimeout: {
+      request: 3000
+    },
+    tabBar: {
+      color: '#333',
+      selectedColor: '#f00',
+      list: [
+        {
+          pagePath: 'pages/info',
+          text: '动态',
+          iconPath: './assets/imgs/dongtai.png',
+          selectedIconPath: './assets/imgs/dongtai_active.png'
+        },
+        {
+          pagePath: 'pages/info',
+          text: '导师',
+          iconPath: './assets/imgs/daoshi.png',
+          selectedIconPath: './assets/imgs/daoshi_active.png'
+        },
+        {
+          pagePath: 'pages/info',
+          text: '我的',
+          iconPath: './assets/imgs/wode.png',
+          selectedIconPath: './assets/imgs/wode_active.png'
+        }
+      ]
+    }
+  };
+
+  globalData = {};
+
+  constructor() {
+    super();
+    // 引入插件
+    this.use('requestfix');
+    this.use('promisify');
+  }
+
+  async onLaunch() {
+    // 小程序启动之后 触发
+    console.log('start program');
+  }
+}
+</script>
+

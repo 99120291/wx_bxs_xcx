@@ -1,0 +1,169 @@
+<template>
+    <!--pages/tw/tw.wxml-->
+    <view class="container">
+        <view class="top">
+            <text wx:for="{{dataarr}}" wx:key="{{item.id}}" class="{{cor==item.id?'border':''}}" data-text="{{item.val}}" data-id="{{item.id}}" bindtap="clickfn" >
+              {{item.tit}}
+            </text>
+        </view>
+        <tabQuestion :Con.sync="Con"></tabQuestion>
+    </view>
+
+</template>
+
+<script>
+import wepy from 'wepy'
+import TabQuestion from '../components/tab_question'
+export default class Question extends wepy.page {
+  config = {
+    backgroundTextStyle: 'light',
+    navigationBarBackgroundColor: '#3A76E5',
+    navigationBarTitleText: '我的提问',
+    navigationBarTextStyle: '#fff'
+  };
+  components = {
+    tabQuestion: TabQuestion
+  };
+  data = {
+    dataarr: [
+      {
+        id: 1,
+        tit: '已回复',
+        val: 'T',
+        flag: true
+      },
+      {
+        id: 2,
+        tit: '未回复',
+        val: 'F',
+        flag: false
+      }
+    ],
+    array: [
+      {
+        id: 1,
+        read: '未读',
+        tit: '什么是绝对地址和相对地址',
+        price: '20',
+        already: '已回复',
+        good: '精品',
+        flag: true
+      },
+      {
+        id: 2,
+        read: '已读',
+        tit: '什么是绝对地址和相对地址',
+        price: '0',
+        already: '已回复',
+        good: '精品',
+        flag: true
+      },
+      {
+        id: 3,
+        read: '已读',
+        tit: '什么是绝对地址和相对地址',
+        price: '0',
+        already: '已回复',
+        good: '精华',
+        flag: false
+      },
+      {
+        id: 4,
+        read: '已读',
+        tit: '什么是绝对地址和相对地址',
+        price: '0',
+        already: '已回复',
+        good: '精华',
+        flag: false
+      }
+    ],
+    array1: [
+      {
+        id: 1,
+        read: '已读',
+        tit: '什么是相对地址',
+        price: '20',
+        already: '已回复',
+        good: '精品',
+        flag: true
+      },
+      {
+        id: 2,
+        read: '未读',
+        tit: '什么是相对地址',
+        price: '0',
+        already: '已回复',
+        good: '精品',
+        flag: true
+      },
+      {
+        id: 3,
+        read: '未读',
+        tit: '什么是相对地址',
+        price: '0',
+        already: '已回复',
+        good: '精华',
+        flag: false
+      },
+      {
+        id: 4,
+        read: '已读',
+        tit: '什么是相对地址',
+        price: '0',
+        already: '已回复',
+        good: '精华',
+        flag: false
+      }
+    ],
+    flag: true,
+    Con: null,
+    cor: 1
+  };
+  methods = {
+    clickfn(e) {
+      this.cor=e.currentTarget.dataset.id
+      if (e.currentTarget.dataset.text === 'T') {
+        this.flag = true
+        this.Con = this.array
+      } else {
+        this.flag = false
+        this.Con = this.array1
+      }
+    },
+    return() {
+      wepy.navigateBack({
+        delta: 1
+      })
+    }
+  };
+  onLoad() {
+    this.Con = this.array
+  }
+}
+</script>
+
+<style scoped>
+/* pages/tw/tw.wxss */
+
+page {
+  background: #f2f2f2;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.top {
+  background: #fff;
+  width: 100%;
+}
+
+.top > text {
+  float: left;
+  margin-left: 30rpx;
+}
+.border {
+  border-bottom: solid 3px blue;
+}
+</style>

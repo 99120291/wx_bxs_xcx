@@ -1,0 +1,76 @@
+<template>
+    <view class="content">
+        <block class="all" wx:for="{{Con}}" wx:key="{{index}}">
+            <view class="fir" bindtap="toDetail({{item.id}},detail,{{item.read}})">
+                <view><text class="notread">{{item.read==='未读'?item.read:''}}</text>{{item.tit}}</view>
+                <view class="fir_sec">
+                    <text>￥{{item.price}}</text><text>{{item.already}}</text><text>{{item.good}}</text>
+                </view>
+                <text class='pos iconfont icon-gengduo1'></text>
+            </view>
+        </block>
+    </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+export default class tabQuestion extends wepy.component {
+  props = {
+    Con: Array
+  };
+  data = {}
+  methods = {
+    toDetail(id, path, read) {
+      console.log(id, path, read)
+      wepy.navigateTo({
+        url: path + '?id=' + id
+      })
+    }
+  };
+}
+</script>
+
+<style scoped>
+.content {
+  width: 100%;
+}
+.fir {
+  border-bottom: 2px solid #ccc;
+  position: relative;
+  padding-left: 40px;
+  width: 100%;
+  background: #fff;
+  margin: 20rpx 0;
+}
+
+.fir > view {
+  line-height: 2;
+}
+
+.pos {
+  position: absolute;
+  top: 50rpx;
+  right: 120rpx;
+  font-size: 30rpx;
+}
+
+.notread {
+  font-size: 30rpx;
+  background: #e44949;
+
+  color: #fff;
+}
+
+.fir_sec > text {
+  padding-right: 30rpx;
+  font-size: 30rpx;
+}
+
+.fir_sec > text:nth-child(1) {
+  color: #ebb060;
+}
+
+.active {
+  color: red;
+}
+</style>

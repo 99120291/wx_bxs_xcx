@@ -1,0 +1,66 @@
+<template>
+    <view class="detail_bot">
+        <view class="detail_con">
+            <view>对这个回答满意吗？</view>
+            <view>请匿名打分</view>
+        </view>
+        <view class="detail_star">
+            <view wx:for="{{stardata}}" wx:key="{{*this}}" class="detail_star_every" data-id="{{index}}" bindtap="clickfn">
+                <text class="{{style >= index+1? 'active' : ''}} iconfont icon-xingzhuang60kaobei2"></text>
+            </view>
+        </view>
+    </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+export default class TabStar extends wepy.component {
+  props = {
+    stardata: {
+        type:Array,
+        default:null
+    }
+  };
+  data = {
+    style:0
+  };
+  methods = {
+     clickfn(e){
+      const id = e.currentTarget.dataset.id
+      console.log(id)
+      this.style = (id+1)
+    }
+  };
+}
+</script>
+
+<style scoped>
+.detail_bot {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.detail_con {
+  padding-left: 10rpx;
+  font-size: 28rpx;
+  flex: 4;
+  line-height: 2;
+}
+.detail_star {
+  flex: 6;
+}
+.detail_star_every {
+  float: left;
+  padding-left: 30rpx;
+}
+.iconfont {
+  font-size: 50rpx;
+}
+.active {
+  color: yellow;
+}
+</style>

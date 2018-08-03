@@ -1,0 +1,58 @@
+<template>
+    <view>
+        <view>123</view>
+        {{id}}
+        <view>
+          <tabStar :stardata.sync="stardata"></tabStar>
+        </view>
+    </view>
+    
+</template>
+
+<script>
+import wepy from 'wepy'
+import TabStar from '../components/star_commont'
+export default class Detail extends wepy.page {
+  config = {
+    backgroundTextStyle: 'light',
+    navigationBarBackgroundColor: '#3A76E5',
+    navigationBarTitleText: '详情',
+    navigationBarTextStyle: '#fff'
+  };
+  components={
+    tabStar:TabStar
+  }
+  data = {
+    id: null,
+    stardata:[
+      {
+        star:1,
+      },
+      {
+        star:2,
+      },
+      {
+        star:3,
+      },
+      {
+        star:4,
+      },
+      {
+        star:5,
+      }
+    ]
+  }
+  methods={
+   
+  }
+  onLoad(options) {
+    this.id=options.id
+  }
+  
+  
+}
+</script>
+
+<style scoped>
+
+</style>

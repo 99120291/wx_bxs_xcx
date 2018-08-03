@@ -1,0 +1,235 @@
+<style scoped>
+/* pages/info/info.wxss */
+
+page,
+.container {
+  font-size: 30rpx;
+  width: 100%;
+  background: #fff;
+}
+
+.container .dl {
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.container .dl .dt {
+  flex: 7.5;
+}
+
+.container .dl .dt .info_fir {
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+}
+
+.container .dl .dt .info_fir .sty {
+  color: #6b98ec;
+}
+
+.container .dl .dt .info_fir text {
+  padding-left: 80rpx;
+  line-height: 2;
+}
+
+.container .dl .dt .info_sec {
+  line-height: 2;
+  width: 100%;
+  display: flex;
+}
+
+.container .dl .dt .info_sec .info_sec_fs {
+  float: left;
+  padding-left: 100rpx;
+}
+
+.container .dl .dd {
+  flex: 2.5;
+  position: relative;
+}
+
+.container .dl .dd .head {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: 60%;
+  height: 60%;
+  background: #d8d8d8;
+  border-radius: 50%;
+}
+.head>image{
+  width: 100%;
+  height: 100%;
+}
+.textarea {
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+}
+
+.textarea .li {
+  padding-left: 80rpx;
+  line-height: 2;
+}
+
+.textarea .lis {
+  line-height: 2;
+  padding: 0 80rpx 20rpx ;
+  width: 80%;
+  text-overflow: ellipsis;
+  height:auto;
+  overflow : hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.textarea .li icon {
+  padding-top: 20rpx;
+}
+
+.textarea .lis icon {
+  padding-top: 20rpx;
+}
+
+.more {
+  color: blue;
+}
+
+.block {
+  background: #f2f2f2;
+  width: 100%;
+  height: 30rpx;
+}
+
+.sub {
+  padding-left: 130rpx;
+  width: 100%;
+  line-height: 4;
+}
+
+.but {
+  margin-left: 30rpx;
+  padding: 10rpx;
+  background: #cec46e;
+  color: #fff;
+}
+.bot {
+  width: 100%;
+}
+.bot_every {
+  padding-left: 80rpx;
+  line-height: 3;
+  border-bottom: 1px solid #ccc;
+}
+.answer {
+  padding-left: 20rpx;
+  color: red;
+  position: relative;
+}
+.to {
+  position: absolute;
+  right: 30rpx;
+  font-size: 30rpx;
+}
+</style>
+<template>
+  <!--pages/info/info.wxml-->
+<view class='container'>
+    <view class='dl'>
+        <view class='dt'>
+            <view class='info_fir'>
+                <text>{{name}}</text>
+                <text class='sty'>{{set}}</text>
+            </view>
+            <view class='info_sec'>
+                <view class='info_sec_fs'>
+                    <view>100</view>
+                    <view>粉丝</view>
+                </view>
+                <view class='info_sec_fs'>
+                    <view>100</view>
+                    <view>粉丝</view>
+                </view>
+            </view>
+        </view>
+        <view class='dd'>
+            <view class='head'>
+              <image src="../assets/imgs/head.jpg"/>
+            </view>
+        </view>
+    </view>
+    <view class='textarea'>
+        <view class='li'>
+            <text class='iconfont icon-dingweiweizhi'></text>
+            北京市,朝阳区，望京
+        </view>
+        <view class='li'>
+            <text class='iconfont icon-briefcase'></text>
+            阿里巴巴北京电商事业部，前端负责人
+        </view>
+        <view class='lis'>
+            <text class='iconfont icon-briefcase'></text>
+            精通多套前端框架，熟悉后端技术，从业经验14年，参与过多个大型互联网项目精通多套前端框架，精通多套前端框架精通多套前端框架精通多套前端框架，精通多套前端框架精通多套前端框架精通多套前端框架精通多套前端框架...<text class='more'>更多</text>
+        </view>
+    </view>
+    <view class='block'></view>
+    <view class='sub'>申请成为导师，帮助更多人成长<text class='but' bindtap="applyfn('apply')">立即申请</text></view>
+    <view class='block'></view>
+    <view wx:for='{{Pages}}' wx:key='{{index}}' class='bot'>
+        <view class='bot_every' bindtap="tonewpage({{item.path}})">
+            {{item.tit}}
+            <text class='answer'>{{item.question}}</text>
+            <text class='to iconfont icon-gengduo1'></text>
+        </view>
+    </view>
+</view>
+
+</template>
+
+<script>
+import wepy from 'wepy'
+// pages/info/info.js
+export default class Info extends wepy.page {
+  config = {
+    backgroundTextStyle: 'light',
+    navigationBarBackgroundColor: '#3A76E5',
+    navigationBarTitleText: '惠答',
+    navigationBarTextStyle: '#fff'
+  };
+  data = {
+    name: 'Johnny',
+    set: '编辑',
+    Pages: [
+      {
+        tit: '我的提问',
+        question: '(2个新回答)',
+        path: 'question'
+      },
+      {
+        tit: '我想见的导师',
+        question: '(2个可见)',
+        path: 'teacher'
+      },
+      {
+        tit: '我的收藏'
+      },
+      {
+        tit: '我的动态'
+      }
+    ]
+  };
+  methods = {
+    tonewpage(path) {
+      wepy.navigateTo({
+        url: path
+      })
+    },
+    applyfn(path) {
+      wepy.navigateTo({
+        url: path
+      })
+    }
+  };
+}
+</script>
