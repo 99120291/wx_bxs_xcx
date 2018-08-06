@@ -31,6 +31,10 @@
             <view class="apply_time_len"><input name="time" placeholder="" /></view>
           </view>
           <view class='block'></view>
+          <view class="apply_myself">
+            <text>自我简介</text>
+            <text>（20-300字）</text>
+          </view>
           <view class="apply_intro">
               <textarea placeholder="详细的自我介绍，有助于快速通过审核" name="intro"/>
           </view>
@@ -104,7 +108,7 @@ input {
 }
 .apply_time {
   width: 90%;
-  margin: 0 auto;
+  margin: 0 auto 40rpx;
   line-height: 2;
 }
 .apply_time_len {
@@ -116,13 +120,14 @@ input {
   background: #f2f2f2;
 }
 .apply_intro {
-  background: #fff;
   width: 100%;
 }
 textarea {
-  height: 210px;
+  height:400rpx;
   width: 100%;
-  border: solid 1px #ccc;
+  padding-left: 30rpx;
+  font-size: 30rpx;
+  line-height: 2;
 }
 button {
   position: fixed;
@@ -131,5 +136,9 @@ button {
   color: #fff;
   background: #c97a0e;
   width: 100%;
+}
+.apply_myself{
+  width: 100%;
+  padding: 30rpx 0 0 30rpx;
 }
 </style>

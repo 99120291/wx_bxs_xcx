@@ -13,24 +13,21 @@
 </template>
 
 <script>
-import wepy from 'wepy';
+import wepy from 'wepy'
 export default class TabStar extends wepy.component {
   props = {
-    stardata: {
-        type:Array,
-        default:null
-    }
-  };
+    stardata: Array
+  }
   data = {
-    style:0
-  };
+    style: 0
+  }
   methods = {
-     clickfn(e){
+    clickfn(e) {
       const id = e.currentTarget.dataset.id
       console.log(id)
-      this.style = (id+1)
+      this.style = id + 1
     }
-  };
+  }
 }
 </script>
 

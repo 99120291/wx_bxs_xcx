@@ -121,7 +121,7 @@ export default class Question extends wepy.page {
   };
   methods = {
     clickfn(e) {
-      this.cor=e.currentTarget.dataset.id
+      this.cor = e.currentTarget.dataset.id
       if (e.currentTarget.dataset.text === 'T') {
         this.flag = true
         this.Con = this.array

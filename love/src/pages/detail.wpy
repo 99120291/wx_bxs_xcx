@@ -18,41 +18,36 @@ export default class Detail extends wepy.page {
     navigationBarBackgroundColor: '#3A76E5',
     navigationBarTitleText: '详情',
     navigationBarTextStyle: '#fff'
-  };
-  components={
-    tabStar:TabStar
+  }
+  components = {
+    tabStar: TabStar
   }
   data = {
     id: null,
-    stardata:[
+    stardata: [
       {
-        star:1,
+        star: 1
       },
       {
-        star:2,
+        star: 2
       },
       {
-        star:3,
+        star: 3
       },
       {
-        star:4,
+        star: 4
       },
       {
-        star:5,
+        star: 5
       }
     ]
   }
-  methods={
-   
-  }
+  methods = {}
   onLoad(options) {
-    this.id=options.id
+    this.id = options.id
   }
-  
-  
 }
 </script>
 
 <style scoped>
-
 </style>

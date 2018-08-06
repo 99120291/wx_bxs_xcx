@@ -20,10 +20,10 @@ export default class Question extends wepy.page {
     navigationBarBackgroundColor: '#3A76E5',
     navigationBarTitleText: '我想见的导师',
     navigationBarTextStyle: '#fff'
-  };
+  }
   components = {
     TabTeacher
-  };
+  }
   data = {
     dataarr: [
       {
@@ -42,92 +42,98 @@ export default class Question extends wepy.page {
     array: [
       {
         id: 1,
-        src:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533307829946&di=b1c5b8ec0f73a2caeb85b27b98e7a5a9&imgtype=0&src=http%3A%2F%2Frin.linovel.net%2Fattachment%2F103934%2F1067835_1d3cdd57d92dfc6b5ad915eb5b7206f8.png%2521min1200jpg",
+        src:
+          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533307829946&di=b1c5b8ec0f73a2caeb85b27b98e7a5a9&imgtype=0&src=http%3A%2F%2Frin.linovel.net%2Fattachment%2F103934%2F1067835_1d3cdd57d92dfc6b5ad915eb5b7206f8.png%2521min1200jpg',
         name: 'Johnny',
         address: '阿里巴巴资深前端工程师',
         answer: '158回答',
-        fans:"1000粉丝",
-        saw:"1000想见",
-        skill:"给年轻学者的基本网络技巧",
-        page:"Google scholar页面",
-        appoint:"约",
-        time:"10月11日下午2点北京，点击报名"
+        fans: '1000粉丝',
+        saw: '1000想见',
+        skill: '给年轻学者的基本网络技巧',
+        page: 'Google scholar页面',
+        appoint: '约',
+        time: '10月11日下午2点北京，点击报名'
       },
       {
         id: 2,
-        src:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533307829946&di=b1c5b8ec0f73a2caeb85b27b98e7a5a9&imgtype=0&src=http%3A%2F%2Frin.linovel.net%2Fattachment%2F103934%2F1067835_1d3cdd57d92dfc6b5ad915eb5b7206f8.png%2521min1200jpg",
+        src:
+          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533307829946&di=b1c5b8ec0f73a2caeb85b27b98e7a5a9&imgtype=0&src=http%3A%2F%2Frin.linovel.net%2Fattachment%2F103934%2F1067835_1d3cdd57d92dfc6b5ad915eb5b7206f8.png%2521min1200jpg',
         name: 'zhsan',
         address: '阿里巴巴资深前端工程师',
         answer: '158回答',
-        fans:"1000粉丝",
-        saw:"1000想见",
-        skill:"给年轻学者的基本网络技巧",
-        page:"Google scholar页面",
-        appoint:"约",
-        time:"10月11日下午2点北京，点击报名"
+        fans: '1000粉丝',
+        saw: '1000想见',
+        skill: '给年轻学者的基本网络技巧',
+        page: 'Google scholar页面',
+        appoint: '约',
+        time: '10月11日下午2点北京，点击报名'
       },
       {
         id: 3,
-        src:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533307829946&di=b1c5b8ec0f73a2caeb85b27b98e7a5a9&imgtype=0&src=http%3A%2F%2Frin.linovel.net%2Fattachment%2F103934%2F1067835_1d3cdd57d92dfc6b5ad915eb5b7206f8.png%2521min1200jpg",
+        src:
+          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533307829946&di=b1c5b8ec0f73a2caeb85b27b98e7a5a9&imgtype=0&src=http%3A%2F%2Frin.linovel.net%2Fattachment%2F103934%2F1067835_1d3cdd57d92dfc6b5ad915eb5b7206f8.png%2521min1200jpg',
         name: 'lisi',
         address: '阿里巴巴资深前端工程师',
         answer: '158回答',
-        fans:"1000粉丝",
-        saw:"1000想见",
-        skill:"给年轻学者的基本网络技巧",
-        page:"Google scholar页面",
-        appoint:"约",
-        time:"10月11日下午2点北京，点击报名"
+        fans: '1000粉丝',
+        saw: '1000想见',
+        skill: '给年轻学者的基本网络技巧',
+        page: 'Google scholar页面',
+        appoint: '约',
+        time: '10月11日下午2点北京，点击报名'
       }
     ],
     array1: [
-       {
+      {
         id: 1,
-        src:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533308417692&di=998279b2327c7d6b03a47f2207a62f18&imgtype=0&src=http%3A%2F%2Fpic.nipic.com%2F2008-06-25%2F200862501649793_2.jpg",
+        src:
+          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533308417692&di=998279b2327c7d6b03a47f2207a62f18&imgtype=0&src=http%3A%2F%2Fpic.nipic.com%2F2008-06-25%2F200862501649793_2.jpg',
         name: 'dd',
         address: '阿里巴巴资深前端工程师',
         answer: '158回答',
-        fans:"1000粉丝",
-        saw:"1000想见",
-        skill:"给年轻学者的基本网络技巧",
-        page:"Google scholar页面",
-        appoint:"约",
-        time:"10月11日下午2点北京，点击报名"
+        fans: '1000粉丝',
+        saw: '1000想见',
+        skill: '给年轻学者的基本网络技巧',
+        page: 'Google scholar页面',
+        appoint: '约',
+        time: '10月11日下午2点北京，点击报名'
       },
       {
         id: 2,
-        src:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533308417692&di=998279b2327c7d6b03a47f2207a62f18&imgtype=0&src=http%3A%2F%2Fpic.nipic.com%2F2008-06-25%2F200862501649793_2.jpg",
+        src:
+          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533308417692&di=998279b2327c7d6b03a47f2207a62f18&imgtype=0&src=http%3A%2F%2Fpic.nipic.com%2F2008-06-25%2F200862501649793_2.jpg',
         name: 'cc',
         address: '阿里巴巴资深前端工程师',
         answer: '158回答',
-        fans:"1000粉丝",
-        saw:"1000想见",
-        skill:"给年轻学者的基本网络技巧",
-        page:"Google scholar页面",
-        appoint:"约",
-        time:"10月11日下午2点北京，点击报名"
+        fans: '1000粉丝',
+        saw: '1000想见',
+        skill: '给年轻学者的基本网络技巧',
+        page: 'Google scholar页面',
+        appoint: '约',
+        time: '10月11日下午2点北京，点击报名'
       },
       {
         id: 3,
-        src:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533308417692&di=998279b2327c7d6b03a47f2207a62f18&imgtype=0&src=http%3A%2F%2Fpic.nipic.com%2F2008-06-25%2F200862501649793_2.jpg",
+        src:
+          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533308417692&di=998279b2327c7d6b03a47f2207a62f18&imgtype=0&src=http%3A%2F%2Fpic.nipic.com%2F2008-06-25%2F200862501649793_2.jpg',
         name: 'ww',
         address: '阿里巴巴资深前端工程师',
         answer: '158回答',
-        fans:"1000粉丝",
-        saw:"1000想见",
-        skill:"给年轻学者的基本网络技巧",
-        page:"Google scholar页面",
-        appoint:"约",
-        time:"10月11日下午2点北京，点击报名"
+        fans: '1000粉丝',
+        saw: '1000想见',
+        skill: '给年轻学者的基本网络技巧',
+        page: 'Google scholar页面',
+        appoint: '约',
+        time: '10月11日下午2点北京，点击报名'
       }
     ],
     flag: true,
     Con: null,
     cor: 1
-  };
+  }
   methods = {
     clickfn(e) {
-      this.cor=e.currentTarget.dataset.id
+      this.cor = e.currentTarget.dataset.id
       if (e.currentTarget.dataset.text === 'T') {
         this.flag = true
         this.Con = this.array
@@ -141,9 +147,10 @@ export default class Question extends wepy.page {
         delta: 1
       })
     }
-  };
-  onLoad() {
+  }
+  onLoad(options) {
     this.Con = this.array
+    console.log(options)
   }
 }
 </script>

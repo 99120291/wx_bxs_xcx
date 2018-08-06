@@ -58,7 +58,7 @@ page,
   background: #d8d8d8;
   border-radius: 50%;
 }
-.head>image{
+.head > image {
   width: 100%;
   height: 100%;
 }
@@ -74,11 +74,11 @@ page,
 
 .textarea .lis {
   line-height: 2;
-  padding: 0 80rpx 20rpx ;
+  padding: 0 80rpx 20rpx;
   width: 80%;
   text-overflow: ellipsis;
-  height:auto;
-  overflow : hidden;
+  height: auto;
+  overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -140,7 +140,9 @@ page,
         <view class='dt'>
             <view class='info_fir'>
                 <text>{{name}}</text>
-                <text class='sty'>{{set}}</text>
+                <!-- <text>{{teacher}}</text> -->
+                <text class='sty' bindtap="clickCompile({{Tocompile}})">{{compile}}</text>
+                <!-- <text class='sty'>{{set}}</text> -->
             </view>
             <view class='info_sec'>
                 <view class='info_sec_fs'>
@@ -151,6 +153,10 @@ page,
                     <view>100</view>
                     <view>粉丝</view>
                 </view>
+               <!--  <view class='info_sec_fs'>
+                    <view>￥1000</view>
+                    <view>收入</view>
+                </view> -->
             </view>
         </view>
         <view class='dd'>
@@ -176,8 +182,8 @@ page,
     <view class='block'></view>
     <view class='sub'>申请成为导师，帮助更多人成长<text class='but' bindtap="applyfn('apply')">立即申请</text></view>
     <view class='block'></view>
-    <view wx:for='{{Pages}}' wx:key='{{index}}' class='bot'>
-        <view class='bot_every' bindtap="tonewpage({{item.path}})">
+    <view wx:for='{{student}}' wx:key='{{index}}' class='bot'>
+        <view class='bot_every' bindtap="tonewpage({{item.path}},{{index}})">
             {{item.tit}}
             <text class='answer'>{{item.question}}</text>
             <text class='to iconfont icon-gengduo1'></text>
@@ -196,11 +202,14 @@ export default class Info extends wepy.page {
     navigationBarBackgroundColor: '#3A76E5',
     navigationBarTitleText: '惠答',
     navigationBarTextStyle: '#fff'
-  };
+  }
   data = {
     name: 'Johnny',
-    set: '编辑',
-    Pages: [
+    compile: '编辑',
+    teacher: '导师',
+    set: '设置',
+    Tocompile:'compile',
+    student: [
       {
         tit: '我的提问',
         question: '(2个新回答)',
@@ -217,19 +226,48 @@ export default class Info extends wepy.page {
       {
         tit: '我的动态'
       }
+    ],
+    teaches: [
+      {
+        tit: '我的提问',
+        path: ''
+      },
+      {
+        tit: '我的回答',
+        question: '(2个待回答)',
+        path: 'question'
+      },
+      {
+        tit: '我想见的导师'
+      },
+      {
+        tit: '想见我的人',
+        path: 'teacher'
+      },
+      {
+        tit: '我的收藏'
+      },
+      {
+        tit: '我的动态'
+      }
     ]
-  };
+  }
   methods = {
-    tonewpage(path) {
+    tonewpage(path, id) {
       wepy.navigateTo({
-        url: path
+        url: path + '?=' + id
       })
     },
     applyfn(path) {
       wepy.navigateTo({
         url: path
       })
+    },
+    clickCompile(path){
+      wepy.navigateTo({
+        url: path
+      })
     }
-  };
+  }
 }
 </script>

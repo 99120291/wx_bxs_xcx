@@ -1,4 +1,5 @@
-<style lang="less">
+<style>
+@import './assets/style/weui.wxss';
 page {
   background-color: #efeff4;
 }
@@ -11,12 +12,13 @@ page {
   box-sizing: border-box;
 }
 @font-face {
-  font-family: 'iconfont';  /* project id 669488 */
+  font-family: 'iconfont'; /* project id 669488 */
   src: url('//at.alicdn.com/t/font_669488_iem5kx79gh.eot');
-  src: url('//at.alicdn.com/t/font_669488_iem5kx79gh.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_669488_iem5kx79gh.woff') format('woff'),
-  url('//at.alicdn.com/t/font_669488_iem5kx79gh.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_669488_iem5kx79gh.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_669488_iem5kx79gh.eot?#iefix')
+      format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_669488_iem5kx79gh.woff') format('woff'),
+    url('//at.alicdn.com/t/font_669488_iem5kx79gh.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_669488_iem5kx79gh.svg#iconfont') format('svg');
 }
 
 .iconfont {
@@ -26,31 +28,43 @@ page {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.icon-briefcase:before { content: "\e60e"; }
+.icon-briefcase:before {
+  content: '\e60e';
+}
 
-.icon-xingzhuang60kaobei2:before { content: "\e603"; }
+.icon-xingzhuang60kaobei2:before {
+  content: '\e603';
+}
 
-.icon-gengduo:before { content: "\e672"; }
+.icon-gengduo:before {
+  content: '\e672';
+}
 
-.icon-gengduo1:before { content: "\e691"; }
+.icon-gengduo1:before {
+  content: '\e691';
+}
 
-.icon-dingweiweizhi:before { content: "\e60c"; }
+.icon-dingweiweizhi:before {
+  content: '\e60c';
+}
 </style>
 <script>
-import wepy from 'wepy';
-import 'wepy-async-function';
+import wepy from 'wepy'
+import 'wepy-async-function'
 
 export default class extends wepy.app {
   // 配置信息
   config = {
     // 页面列表
     pages: [
+      'pages/compile',
+      'pages/editInfo',
       'pages/info',
       'pages/activity',
       'pages/teacher',
       'pages/detail',
       'pages/apply',
-      'pages/question',
+      'pages/question'
     ],
     // window 参数设置
     window: {
@@ -90,20 +104,23 @@ export default class extends wepy.app {
         }
       ]
     }
-  };
+  }
 
-  globalData = {};
+  globalData = {
+    globalTeacher: 0,
+    globalStudent: 1
+  }
 
   constructor() {
-    super();
+    super()
     // 引入插件
-    this.use('requestfix');
-    this.use('promisify');
+    this.use('requestfix')
+    this.use('promisify')
   }
 
   async onLaunch() {
     // 小程序启动之后 触发
-    console.log('start program');
+    console.log('start program')
   }
 }
 </script>

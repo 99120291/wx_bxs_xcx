@@ -1,0 +1,105 @@
+<template>
+ <view>
+        <view wx:if="{{index==='0'}}">
+            <form bindsubmit="formSubmit" bindreset="formReset">
+                <input name="input" placeholder="请输入姓名" class="input"/>
+                <view class="reminder">好名字可以让你的朋友更容易记住你</view>
+                <button formType="submit">保存</button>
+                <button formType="reset">清空</button>
+            </form>
+        </view>
+        <view wx:if="{{index==='1'}}">
+            <view class="page">
+                <view class="page__bd">
+                    <view class="weui-cells">
+                        <view class="weui-cell">
+                            <view class="weui-cell__bd">
+                                <view class="weui-uploader">
+                                    <view class="weui-uploader__hd">
+                                        <view class="weui-uploader__title">图片上传</view>
+                                        <view class="weui-uploader__info">{{files.length}}/2</view>
+                                    </view>
+                                    <view class="weui-uploader__bd">
+                                        <view class="weui-uploader__files" id="uploaderFiles">
+                                            <block wx:for="{{files}}" wx:key="*this">
+                                                <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                                                    <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                                                </view>
+                                            </block>
+                                        </view>
+                                        <view class="weui-uploader__input-box">
+                                            <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{index==='2'}}">{{index}}</view>
+        <view wx:if="{{index==='3'}}">{{index}}</view>
+    </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+export default class Editinfo extends wepy.page {
+  config = {
+    navigationBarTitleText: '请编辑资料'
+  }
+  data = {
+    index: null,
+    resetname: null,
+    files: []
+  }
+  onLoad(params) {
+    this.index = params.name
+  }
+  methods = {
+    formSubmit: function(e) {
+      console.log('form发生了submit事件，携带数据为：', e.detail.value)
+      this.resetname = e.detail.value.input
+      wepy.navigateTo({
+        url: 'compile' + '?resetname=' + this.resetname
+      })
+    },
+    formReset: function() {
+      console.log('清空')
+    },
+    chooseImage: function(e) {
+      var that = this
+      wx.chooseImage({
+        sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+        sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+        success: function(res) {
+          // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+          console.log(res)
+          that.setData({
+            files: that.data.files.concat(res.tempFilePaths)
+          })
+        }
+      })
+    },
+    previewImage: function(e) {
+      wx.previewImage({
+        current: e.currentTarget.id, // 当前显示图片的http链接
+        urls: this.data.files // 需要预览的图片http链接列表
+      })
+    }
+  }
+}
+</script>
+
+<style scoped>
+.reminder {
+  width: 100%;
+  text-align: center;
+  color: #ccc;
+}
+.input {
+  border: solid 1px #ccc;
+  padding-left: 70rpx;
+}
+</style>

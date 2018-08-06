@@ -38,86 +38,88 @@ import wepy from 'wepy'
 export default class tabQuestion extends wepy.component {
   props = {
     Con: Array
-  };
+  }
   data = {}
   methods = {
-    Toactivity(id,path){
+    Toactivity(id, path) {
       wepy.navigateTo({
         url: path + '?id=' + id
       })
     }
-  };
+  }
 }
 </script>
 
 <style scoped>
-.content,.all{
-    width: 100%;
-    height: 100%;
+.content,
+.all {
+  width: 100%;
+  height: 100%;
 }
-.view{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    background: #fff;
-    margin: 20rpx 0;
+.view {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background: #fff;
+  margin: 20rpx 0;
 }
-.view_left{
-    flex:3;
-    position: relative;
+.view_left {
+  flex: 3;
+  position: relative;
 }
-.view_left>view{
-    width: 100rpx;
-    height: 100rpx;
-    background: #eee;
-    border-radius: 50%;
-    display: block;
-    position: absolute;
-    top:15%;
-    left: 20%;
+.view_left > view {
+  width: 100rpx;
+  height: 100rpx;
+  background: #eee;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  top: 15%;
+  left: 20%;
 }
-.view_left>view>image{
-    width: 100%;
-    height: 100%;
+.view_left > view > image {
+  width: 100%;
+  height: 100%;
 }
-.view_right{
-    flex: 7;
+.view_right {
+  flex: 7;
 }
 .view_right_fifth,
 .view_right_sec,
-.view_right_fir{
-    width: 100%;
-    line-height: 1.5;
+.view_right_fir {
+  width: 100%;
+  line-height: 1.5;
 }
-.view_right_fir>text:nth-child(1){
-    font-size: 36rpx;
+.view_right_fir > text:nth-child(1) {
+  font-size: 36rpx;
 }
-.view_right_fir>text:nth-child(2){
-    font-size: 30rpx;
-    color:#BFBCBC;
-    padding-left: 30rpx;
+.view_right_fir > text:nth-child(2) {
+  font-size: 30rpx;
+  color: #bfbcbc;
+  padding-left: 30rpx;
 }
-.view_right_sec>text{
-    font-size: 28rpx;
-    padding-right: 30rpx;
-    color:#8D8B8B;
+.view_right_sec > text {
+  font-size: 28rpx;
+  padding-right: 30rpx;
+  color: #8d8b8b;
 }
-.view_right_third,.view_right_fourth{
-    width: 100%;
-    line-height: 1.5;
-    font-size: 34rpx;
-    color:#333;
+.view_right_third,
+.view_right_fourth {
+  width: 100%;
+  line-height: 1.5;
+  font-size: 34rpx;
+  color: #333;
 }
-.view_right_fifth>text:nth-child(1){
-    line-height: 1.5;
-    padding: 0 5rpx;
-    background: #E44949;
-    color:#fff;
-    font-size: 32rpx;
+.view_right_fifth > text:nth-child(1) {
+  line-height: 1.5;
+  padding: 0 5rpx;
+  background: #e44949;
+  color: #fff;
+  font-size: 32rpx;
 }
-.view_right_fifth>text:nth-child(2){
-    color:#E44949;
-    font-size: 28rpx;
-    padding-left: 8rpx;
+.view_right_fifth > text:nth-child(2) {
+  color: #e44949;
+  font-size: 28rpx;
+  padding-left: 8rpx;
 }
 </style>
